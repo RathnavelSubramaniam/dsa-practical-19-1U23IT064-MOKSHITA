@@ -1,6 +1,6 @@
 import java.util.*;
 public class BinarySearch {
-public static void main(String[] args) 
+public static void main(String[] args)
 {
 System.out.print("BINARY SEARCH\n");
 Scanner in = new Scanner(System.in);
@@ -10,7 +10,7 @@ int[] numbers=new int[n];
 System.out.println("ENTER THE INTEGER VALUES:");
 for(int i=0;i<n;i++)
 {
- if(in.hasNextInt()) 
+ if(in.hasNextInt())
  numbers[i]=in.nextInt();
  else
  {
@@ -27,7 +27,17 @@ else
 System.out.println(key + " FOUND IN THE ARRAY AT POSITION "+(res+1));
 in.close();
 }
-public static int BinarySearchIterative( ) {
-// TYPE YOUR CODE HERE
+public static int BinarySearchIterative(int[]A,int data )
+ {
+  int low = 0, high = A.length-1,mid;
+while (low <= high) {
+mid = low + (high-low)/2; //To avoid overflow
+if(A[mid] == data)
+return mid;
+else if(A[mid] < data)
+low = mid + 1;
+else high = mid - 1;
+}
+return -1;
 }
 }
